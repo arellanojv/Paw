@@ -16,15 +16,18 @@
   <div class="container-default">
       <div class="flex items-center justify-between gap-x-8">
           <!-- Header Logo -->
-          <a href="index.php" class="">
+          {{-- <a href="index.php" class="">
               <img src="@asset('images/logo-yellow-dark.png')" alt="Masco" width="109" height="24" />
+          </a> --}}
+          <a class="brand" href="{{ home_url('/') }}">
+            <b>{!! $siteName !!}</b>
           </a>
           <!-- Header Logo -->
 
           <!-- Header Navigation -->
           <div class="menu-block-wrapper">
               <div class="menu-overlay"></div>
-              <nav class="menu-block" id="append-menu-header">
+              <nav class="menu-block" id="append-menu-header" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
                   <div class="mobile-menu-head">
                       <div class="go-back">
                           <i class="fa-solid fa-angle-left"></i>
@@ -32,33 +35,15 @@
                       <div class="current-menu-title"></div>
                       <div class="mobile-menu-close">&times;</div>
                   </div>
-                  <ul class="site-menu-main">
-                      <li class="nav-item nav-item-has-children">
-                          <a href="index.php" class="nav-link-item drop-trigger">Home</a>
-                      </li>
-                      <li class="nav-item nav-item-has-children">
-                          <a href="#section-features" class="nav-link-item drop-trigger">Features</a>
-                      </li>
-                      <li class="nav-item nav-item-has-children">
-                          <a href="#section-about" class="nav-link-item drop-trigger">About</a>
-                      </li>
-                      <li class="nav-item nav-item-has-children">
-                          <a href="#section-course" class="nav-link-item drop-trigger">Course</a>
-                      </li>
-                      <li class="nav-item nav-item-has-children">
-                          <a href="#section-testimonial" class="nav-link-item drop-trigger">Testimonial</a>
-                      </li>
-
-                  </ul>
+                  <x-navigation />
               </nav>
           </div>
           <!-- Header Navigation -->
 
           <!-- Header User Event -->
           <div class="flex items-center gap-6">
-              <a href="login.php" class="btn-text hidden hover:text-ColorYellow sm:inline-block">Login</a>
-              <a href="signup.php" class="group relative z-10 hidden sm:inline-block">
-                  <div class="btn is-rounded is-yellow">Sign up free</div>
+              <a href="{{$ctaBtnInfo['url']}}" class="group relative z-10 hidden sm:inline-block">
+                  <div class="btn is-rounded is-yellow">{{$ctaBtnInfo['title']}}</div>
                   <div class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorYellow transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"></div>
               </a>
               <!-- Responsive Offcanvas Menu Button -->
@@ -75,7 +60,7 @@
   </div>
 </header>
 
-<main class="main-wrapper relative overflow-hidden">
+{{-- <main class="main-wrapper relative overflow-hidden">
   <!--..:: Hero Section Start ::.. -->
   <section class="section-hero">
       <div class="relative z-10">
@@ -742,6 +727,6 @@
       <!-- Section Space -->
   </section>
   <!--..:: Newsletter Section End ::.. -->
-</main>
+</main> --}}
 
 </div>

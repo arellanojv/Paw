@@ -20,6 +20,8 @@ const config = {
     },
     extend: {
       colors: {
+        ColorMonYellow: "#F7DBA7",
+        ColorDarkBlue: "#F7DBA7",
         ColorDark: "#191919",
         ColorBlack: "#0A102F",
         ColorBlue: "#3147FF",
@@ -27,7 +29,7 @@ const config = {
         ColorPurple: "#A259FF",
         ColorBluePurple: "#7949F6",
         ColorYellow: "#FFC900",
-        ColorViolet: "#4B2AAD",
+        ColorViolet: "#4B2AAD",    
         ColorAtomicTangerine: "#FF9966",
         ColorLime: "#C1FF00",
         ColorLunarGreen: "#324438",

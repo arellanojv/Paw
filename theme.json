@@ -1251,6 +1251,16 @@
           "slug": "rose-950"
         },
         {
+          "color": "#f7dba7",
+          "name": "ColorMonYellow",
+          "slug": "colormonyellow"
+        },
+        {
+          "color": "#f7dba7",
+          "name": "ColorDarkBlue",
+          "slug": "colordarkblue"
+        },
+        {
           "color": "#191919",
           "name": "ColorDark",
           "slug": "colordark"

@@ -21,7 +21,7 @@ const config = {
     extend: {
       colors: {
         ColorMonYellow: "#F7DBA7",
-        ColorDarkBlue: "#F7DBA7",
+        ColorDarkBlue: "#003459",
         ColorDark: "#191919",
         ColorBlack: "#0A102F",
         ColorBlue: "#3147FF",

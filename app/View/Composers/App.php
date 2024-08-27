@@ -24,7 +24,8 @@ class App extends Composer
     {
         return [
             'siteName' => $this->siteName(),
-            'siteLogo' => get_field('logo', 'option')
+            'siteLogo' => get_field('logo', 'option'),
+            'ctaBtnInfo' => get_field('ctabutton', 'option')
         ];
     }
 

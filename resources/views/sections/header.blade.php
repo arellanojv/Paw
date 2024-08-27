@@ -42,10 +42,10 @@
 
           <!-- Header User Event -->
           <div class="flex items-center gap-6">
-              <a href="{{$ctaBtnInfo['url']}}" class="group relative z-10 hidden sm:inline-block">
-                  <div class="btn is-rounded is-yellow">{{$ctaBtnInfo['title']}}</div>
-                  <div class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorYellow transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"></div>
-              </a>
+                <a href="{{$ctaBtnInfo['url']}}" class="group relative z-10 hidden sm:inline-block">
+                    <div class="btn is-rounded is-darkblue text-white">{{$ctaBtnInfo['title']}}</div>
+                    <div class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorDarkBlue transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"></div>
+                </a>
               <!-- Responsive Offcanvas Menu Button -->
               <div class="block lg:hidden">
                   <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
@@ -729,4 +729,4 @@
   <!--..:: Newsletter Section End ::.. -->
 </main> --}}
 
-</div>
+{{-- </div> --}}

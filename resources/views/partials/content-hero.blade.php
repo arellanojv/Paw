@@ -15,7 +15,6 @@
                           </h1>
                       </div>
                       <p class="mb-9 max-w-[746px] lg:mb-14">
-                        {{-- @php(the_content()) --}}
                         {{get_field( "description" )}}
                       </p>
                       <a href="{{$ctaBtnInfo['url']}}" class="group relative z-10 hidden sm:inline-block">

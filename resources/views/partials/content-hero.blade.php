@@ -10,7 +10,7 @@
                   <!-- Hero Content Block -->
                   <div class="jos">
                       <div class="mx-auto mb-6 max-w-xl lg:max-w-2xl xl:max-w-3xl xxl:max-w-[1076px]">
-                          <h1 class="mb-6 font-Sora text-[40px] font-semibold leading-none -tracking-[1px] text-[#0E0E0E] sm:text-5xl lg:text-6xl xl:text-[76px] xxl:text-[90px]">
+                          <h1 class="mb-6 font-Sora text-[40px] font-semibold leading-none -tracking-[1px] text-ColorDarkBlue sm:text-5xl lg:text-6xl xl:text-[76px] xxl:text-[90px]">
                               {{get_field( "heading" )}}
                           </h1>
                       </div>

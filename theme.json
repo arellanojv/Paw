@@ -31,12 +31,12 @@
           "slug": "transparent"
         },
         {
-          "color": "#000",
+          "color": "#000000",
           "name": "Black",
           "slug": "black"
         },
         {
-          "color": "#fff",
+          "color": "#ffffff",
           "name": "White",
           "slug": "white"
         },
@@ -316,59 +316,9 @@
           "slug": "stone-950"
         },
         {
-          "color": "#fef2f2",
-          "name": "Red 50",
-          "slug": "red-50"
-        },
-        {
-          "color": "#fee2e2",
-          "name": "Red 100",
-          "slug": "red-100"
-        },
-        {
-          "color": "#fecaca",
-          "name": "Red 200",
-          "slug": "red-200"
-        },
-        {
-          "color": "#fca5a5",
-          "name": "Red 300",
-          "slug": "red-300"
-        },
-        {
-          "color": "#f87171",
-          "name": "Red 400",
-          "slug": "red-400"
-        },
-        {
-          "color": "#ef4444",
-          "name": "Red 500",
-          "slug": "red-500"
-        },
-        {
-          "color": "#dc2626",
-          "name": "Red 600",
-          "slug": "red-600"
-        },
-        {
-          "color": "#b91c1c",
-          "name": "Red 700",
-          "slug": "red-700"
-        },
-        {
-          "color": "#991b1b",
-          "name": "Red 800",
-          "slug": "red-800"
-        },
-        {
-          "color": "#7f1d1d",
-          "name": "Red 900",
-          "slug": "red-900"
-        },
-        {
-          "color": "#450a0a",
-          "name": "Red 950",
-          "slug": "red-950"
+          "color": "#ff0000",
+          "name": "Red",
+          "slug": "red"
         },
         {
           "color": "#fff7ed",

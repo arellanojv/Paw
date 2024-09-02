@@ -20,6 +20,9 @@ const config = {
     },
     extend: {
       colors: {
+        black: "#000000",
+        white: "#FFFFFF",
+        red: "#FF0000",
         ColorMonYellow: "#F7DBA7",
         ColorDarkBlue: "#003459",
         ColorDark: "#191919",

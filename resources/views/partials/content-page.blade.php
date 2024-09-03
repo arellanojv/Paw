@@ -61,12 +61,12 @@
 
                                 <div
                                     class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
-                                    <div class="grid grid-cols-4 grid-flow-col gap-4 listing-grid">
-                                        <div class="border-2">
+                                    <div class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
+                                        <div class="">
                                             <img
                                                 src="https://maps.googleapis.com/maps/api/staticmap?autoscale=2&amp;size=400x600&amp;maptype=roadmap&amp;key=AIzaSyDQQPvj2WRZrF3bBXyrrGI2vVvojSDhjSs&amp;format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0x0a1d38%7Clabel:1%7C775+Fleischmann+Way+Carson+City+NV+89703">
                                         </div>
-                                        <div class="col-span-3 border-2">
+                                        <div class="col-span-3">
 
 
                                             <!-- Accordion Header -->
@@ -96,10 +96,10 @@
                                             <!-- Accordion Body -->
                                         </div>
                                     </div>
-                                    <div class="text-center uk-text-center"
+                                    <div class="read-more text-center"
                                         style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
                                         <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
-                                            class="box-toggle large" contenteditable="false">Read More</a>
+                                            class="box-toggle" contenteditable="false">Read More</a>
                                     </div>
 
 
@@ -136,6 +136,11 @@
                                         </p>
                                     </div>
                                     <!-- Accordion Body -->
+                                    <div class="read-more text-center"
+                                        style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
+                                        <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
+                                            class="box-toggle" contenteditable="false">Read More</a>
+                                    </div>
                                 </div>
                             </li>
                             <!-- Accordion Item -->
@@ -169,6 +174,11 @@
                                         </p>
                                     </div>
                                     <!-- Accordion Body -->
+                                    <div class="read-more text-center"
+                                        style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
+                                        <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
+                                            class="box-toggle" contenteditable="false">Read More</a>
+                                    </div>
                                 </div>
                             </li>
                             <!-- Accordion Item -->

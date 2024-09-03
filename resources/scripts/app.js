@@ -47,14 +47,33 @@ window.addEventListener('scroll', function() {
   header.classList.toggle('scrolling', window.scrollY > 0);
 });
 
+const readText = (text) => {
+  if (text.innerHTML === "Read More") {
+    text.innerHTML = "Read Less";
+  } else {
+    text.innerHTML = "Read More";
+  }
+}
+
 let accordions = document.querySelectorAll(".accordion-item");
 accordions.forEach((item) => {
   let label = item.querySelector(".accordion-header");
+  let box = item.querySelector(".box-toggle");
+  const readMore = item.querySelector(".read-more a");
+
   label.addEventListener("click", () => {
+    readText(readMore);
     item.classList.toggle("active");
-    // accordions.forEach((accordionItem) => {
-    //   accordionItem.classList.add("active");
-    // });
-    // 
+    box.classList.toggle("listing-blur");
   });
+
+  // console.log(readMorez.innerText);
+  readMore.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    readText(readMore);
+    item.classList.toggle("active");
+    box.classList.toggle("listing-blur");
+  });
+  
 });

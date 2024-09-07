@@ -1,7 +1,12 @@
 import domReady from '@roots/sage/client/dom-ready';
 import Swiper from 'swiper';
 import JOS from "jos-animation";
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import '@scripts/menu';
+
+library.add(faPhone, faLocationDot);
+dom.watch();
 // import '@scripts/masco';
 
 /**
@@ -55,11 +60,13 @@ const readText = (text) => {
   }
 }
 
-let accordions = document.querySelectorAll(".accordion-item");
+const accordions = document.querySelectorAll(".accordion-item");
 accordions.forEach((item) => {
-  let label = item.querySelector(".accordion-header");
-  let box = item.querySelector(".box-toggle");
+  const label = item.querySelector(".accordion-header");
+  const box = item.querySelector(".box-toggle");
   const readMore = item.querySelector(".read-more a");
+
+  readMore.innerHTML = "Read More"
 
   label.addEventListener("click", () => {
     readText(readMore);

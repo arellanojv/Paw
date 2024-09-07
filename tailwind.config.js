@@ -25,6 +25,8 @@ const config = {
         red: "#FF0000",
         ColorMonYellow: "#F7DBA7",
         ColorDarkBlue: "#003459",
+        ColorDarkBlue40: "#0078CD",
+        ColorDarkBlue60: "#00528C",
         ColorDark: "#191919",
         ColorBlack: "#0A102F",
         ColorBlue: "#3147FF",

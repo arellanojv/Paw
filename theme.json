@@ -1211,6 +1211,16 @@
           "slug": "colordarkblue"
         },
         {
+          "color": "#0078cd",
+          "name": "ColorDarkBlue40",
+          "slug": "colordarkblue40"
+        },
+        {
+          "color": "#00528c",
+          "name": "ColorDarkBlue60",
+          "slug": "colordarkblue60"
+        },
+        {
           "color": "#191919",
           "name": "ColorDark",
           "slug": "colordark"

@@ -71,35 +71,69 @@
 
                                             <!-- Accordion Header -->
                                             <div
-                                                class="accordion-header flex justify-between gap-6 text-xl font-semibold text-ColorDarkBlue">
-                                                <h4 class="text-md cursor-pointer">Claws And Paws Veterinary Clinic</h4>
+                                                class="accordion-header flex justify-between gap-6 text-xl font-semibold">
+                                                <h4 class="text-md cursor-pointer text-ColorDarkBlue">Claws And Paws
+                                                    Veterinary Clinic</h4>
                                             </div>
                                             <!-- Accordion Header -->
 
                                             <!-- Accordion Body -->
-                                            <div class="accordion-body max-w-[826px] opacity-80">
-                                                <p class="pt-5">
-                                                    A digital agency is a company that leverages
-                                                    digital channels to grow their clients’ brands
-                                                    online. ls and technologies such as web
-                                                    design, digital marketing, creative design and
-                                                    app development.
-                                                </p>
-                                                <p class="pt-5">
-                                                    A digital agency is a company that leverages
-                                                    digital channels to grow their clients’ brands
-                                                    online. ls and technologies such as web
-                                                    design, digital marketing, creative design and
-                                                    app development.
-                                                </p>
+                                            <div class="accordion-body max-w-[826px] opacity-80 pt-2">
+                                                <div class="pt-2">
+                                                    <div class="">
+                                                        <div class="flex gap-x-3">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-phone"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                423-7609
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flex gap-x-3 pt-1">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-location-dot"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                1790 Maximo V. Patalinjug Jr. Ave, Lapu-Lapu City, 6015
+                                                                Cebu
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="pt-2">
+                                                        <b>Offers the following services:</b> Vaccination, Deworming,
+                                                        Grooming,
+                                                        Confinement, Surgery, Laboratory
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p class="pt-2">
+                                                        <b>Payments Accepted:</b> Cash, Gcash, Online Bank Transfer,
+                                                        Credit
+                                                        Card
+                                                    </p>
+                                                </div>
+                                                <div class="pt-6">
+                                                    <a href="#"
+                                                        class="group relative z-10 hidden sm:inline-block">
+                                                        <div
+                                                            class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
+                                                            View
+                                                            Additional Information </div>
+                                                        <div
+                                                            class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorDarkBlue transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0">
+                                                        </div>
+                                                    </a>
+                                                </div>
+
                                             </div>
                                             <!-- Accordion Body -->
                                         </div>
                                     </div>
-                                    <div class="read-more text-center"
-                                        style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
-                                        <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
-                                            class="box-toggle" contenteditable="false">Read More</a>
+                                    <div class="read-more text-center absolute z-10 right-0 bottom-0 left-0">
+                                        <a href="#"
+                                            class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue">Read
+                                            More</a>
                                     </div>
 
 
@@ -108,80 +142,173 @@
                             <!-- Accordion Item -->
                             <!-- Accordion Item -->
                             <li class="accordion-item accordion-solid-shadow">
+
                                 <div
-                                    class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px]">
-                                    <!-- Accordion Header -->
-                                    <div
-                                        class="accordion-header flex justify-between gap-6 text-xl font-semibold text-ColorDarkBlue">
+                                    class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
+                                    <div class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
+                                        <div class="">
+                                            <img
+                                                src="https://maps.googleapis.com/maps/api/staticmap?autoscale=2&amp;size=400x600&amp;maptype=roadmap&amp;key=AIzaSyDQQPvj2WRZrF3bBXyrrGI2vVvojSDhjSs&amp;format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0x0a1d38%7Clabel:1%7C775+Fleischmann+Way+Carson+City+NV+89703">
+                                        </div>
+                                        <div class="col-span-3">
 
-                                        Q. What services does a digital agency
 
+                                            <!-- Accordion Header -->
+                                            <div
+                                                class="accordion-header flex justify-between gap-6 text-xl font-semibold">
+                                                <h4 class="text-md cursor-pointer text-ColorDarkBlue">Claws And Paws
+                                                    Veterinary Clinic</h4>
+                                            </div>
+                                            <!-- Accordion Header -->
 
-                                        <div
-                                            class="accordion-icon-1 relative flex h-5 w-5 items-center justify-center rounded-[50%] bg-ColorBlue">
-                                            <span class="inline-block h-0.5 w-[10px] rounded-sm bg-white"></span>
-                                            <span
-                                                class="absolute inline-block h-[10px] w-0.5 rotate-0 rounded-sm bg-white"></span>
+                                            <!-- Accordion Body -->
+                                            <div class="accordion-body max-w-[826px] opacity-80 pt-2">
+                                                <div class="pt-2">
+                                                    <div class="">
+                                                        <div class="flex gap-x-3">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-phone"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                423-7609
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flex gap-x-3 pt-1">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-location-dot"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                1790 Maximo V. Patalinjug Jr. Ave, Lapu-Lapu City, 6015
+                                                                Cebu
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="pt-2">
+                                                        <b>Offers the following services:</b> Vaccination, Deworming,
+                                                        Grooming,
+                                                        Confinement, Surgery, Laboratory
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p class="pt-2">
+                                                        <b>Payments Accepted:</b> Cash, Gcash, Online Bank Transfer,
+                                                        Credit
+                                                        Card
+                                                    </p>
+                                                </div>
+                                                <div class="pt-6">
+                                                    <a href="#"
+                                                        class="group relative z-10 hidden sm:inline-block">
+                                                        <div
+                                                            class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
+                                                            View
+                                                            Additional Information </div>
+                                                        <div
+                                                            class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorDarkBlue transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0">
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                            <!-- Accordion Body -->
                                         </div>
                                     </div>
-                                    <!-- Accordion Header -->
-                                    <!-- Accordion Body -->
-                                    <div class="accordion-body max-w-[826px] opacity-80">
-                                        <p class="pt-5">
-                                            A digital agency is a company that leverages
-                                            digital channels to grow their clients’ brands
-                                            online. ls and technologies such as web
-                                            design, digital marketing, creative design and
-                                            app development.
-                                        </p>
+                                    <div class="read-more text-center absolute z-10 right-0 bottom-0 left-0">
+                                        <a href="#"
+                                            class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue">Read
+                                            More</a>
                                     </div>
-                                    <!-- Accordion Body -->
-                                    <div class="read-more text-center"
-                                        style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
-                                        <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
-                                            class="box-toggle" contenteditable="false">Read More</a>
-                                    </div>
+
+
                                 </div>
                             </li>
                             <!-- Accordion Item -->
                             <!-- Accordion Item -->
                             <li class="accordion-item accordion-solid-shadow">
+
                                 <div
-                                    class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px]">
-                                    <!-- Accordion Header -->
-                                    <div
-                                        class="accordion-header flex justify-between gap-6 text-xl font-semibold text-ColorDarkBlue">
-                                        <button class="flex-1 text-left">
-                                            Q. Hiring a digital agency vs hiring in-house:
-                                            What is the difference?
-                                        </button>
-                                        <div
-                                            class="accordion-icon-1 relative flex h-5 w-5 items-center justify-center rounded-[50%] bg-ColorBlue">
-                                            <span class="inline-block h-0.5 w-[10px] rounded-sm bg-white"></span>
-                                            <span
-                                                class="absolute inline-block h-[10px] w-0.5 rotate-0 rounded-sm bg-white"></span>
+                                    class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
+                                    <div class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
+                                        <div class="">
+                                            <img
+                                                src="https://maps.googleapis.com/maps/api/staticmap?autoscale=2&amp;size=400x600&amp;maptype=roadmap&amp;key=AIzaSyDQQPvj2WRZrF3bBXyrrGI2vVvojSDhjSs&amp;format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0x0a1d38%7Clabel:1%7C775+Fleischmann+Way+Carson+City+NV+89703">
+                                        </div>
+                                        <div class="col-span-3">
+
+
+                                            <!-- Accordion Header -->
+                                            <div
+                                                class="accordion-header flex justify-between gap-6 text-xl font-semibold">
+                                                <h4 class="text-md cursor-pointer text-ColorDarkBlue">Claws And Paws
+                                                    Veterinary Clinic</h4>
+                                            </div>
+                                            <!-- Accordion Header -->
+
+                                            <!-- Accordion Body -->
+                                            <div class="accordion-body max-w-[826px] opacity-80 pt-2">
+                                                <div class="pt-2">
+                                                    <div class="">
+                                                        <div class="flex gap-x-3">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-phone"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                423-7609
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flex gap-x-3 pt-1">
+                                                            <div class="h-auto text-ColorDarkBlue60">
+                                                                <i class="fa-solid fa-location-dot"></i>
+                                                            </div>
+                                                            <div class="flex-1 text-md">
+                                                                1790 Maximo V. Patalinjug Jr. Ave, Lapu-Lapu City, 6015
+                                                                Cebu
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="pt-2">
+                                                        <b>Offers the following services:</b> Vaccination, Deworming,
+                                                        Grooming,
+                                                        Confinement, Surgery, Laboratory
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p class="pt-2">
+                                                        <b>Payments Accepted:</b> Cash, Gcash, Online Bank Transfer,
+                                                        Credit
+                                                        Card
+                                                    </p>
+                                                </div>
+                                                <div class="pt-6">
+                                                    <a href="#"
+                                                        class="group relative z-10 hidden sm:inline-block">
+                                                        <div
+                                                            class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
+                                                            View
+                                                            Additional Information </div>
+                                                        <div
+                                                            class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorDarkBlue transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0">
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                            <!-- Accordion Body -->
                                         </div>
                                     </div>
-                                    <!-- Accordion Header -->
-                                    <!-- Accordion Body -->
-                                    <div class="accordion-body max-w-[826px] opacity-80">
-                                        <p class="pt-5">
-                                            A digital agency is a company that leverages
-                                            digital channels to grow their clients’ brands
-                                            online. ls and technologies such as web
-                                            design, digital marketing, creative design and
-                                            app development.
-                                        </p>
+                                    <div class="read-more text-center absolute z-10 right-0 bottom-0 left-0">
+                                        <a href="#"
+                                            class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue">Read
+                                            More</a>
                                     </div>
-                                    <!-- Accordion Body -->
-                                    <div class="read-more text-center"
-                                        style="position: absolute; z-index: 111111; bottom: 0; left: 0; right: 0;">
-                                        <a href="#" style="padding: 15px 0px; display: block; cursor: pointer;"
-                                            class="box-toggle" contenteditable="false">Read More</a>
-                                    </div>
+
+
                                 </div>
                             </li>
                             <!-- Accordion Item -->
+
                         </ul>
                         <!-- Accordion List -->
                     </div>

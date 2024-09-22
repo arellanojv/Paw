@@ -2,7 +2,7 @@
     <header>
         <h2 class="entry-title">
             <a href="{{ get_permalink() }}">
-                {!! $title !!}
+                {!! $title !!} v3
             </a>
         </h2>
 

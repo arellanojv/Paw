@@ -1,5 +1,70 @@
 <?php
 
+function paw_post_types()
+{
+    $labels = array(
+        'name'                  => 'Vet Clinics',
+        'singular_name'         => 'Vet Clinic',
+        'menu_name'             => 'Vet Clinics',
+        'name_admin_bar'        => 'Vet Clinic', // Appears in the admin toolbar
+        'add_new'               => 'Add New Vet Clinic',
+        'add_new_item'          => 'Add New Vet Clinic',
+        'new_item'              => 'New Vet Clinic',
+        'edit_item'             => 'Edit Vet Clinic',
+        'view_item'             => 'View Vet Clinic',
+        'all_items'             => 'All Vet Clinics',
+        'search_items'          => 'Search Vet Clinics',
+        'not_found'             => 'No Vet Clinics found',
+        'not_found_in_trash'    => 'No Vet Clinics found in Trash',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'show_in_rest'       => true, // For Gutenberg editor
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'rewrite'            => array('slug' => 'vet-clinic'),
+        'menu_icon'          => 'dashicons-pets',
+    );
+
+    register_post_type('vet_clinic', $args);
+
+
+    $listingLabels = array(
+        'name'                  => 'Listings',
+        'singular_name'         => 'Listing',
+        'menu_name'             => 'Listings',
+        'name_admin_bar'        => 'Listing',
+        'add_new'               => 'Add New Listing',
+        'add_new_item'          => 'Add New Listing',
+        'new_item'              => 'New Listing',
+        'edit_item'             => 'Edit Listing',
+        'view_item'             => 'View Listing',
+        'all_items'             => 'All Listings',
+        'search_items'          => 'Search Listings',
+        'not_found'             => 'No Listings found',
+        'not_found_in_trash'    => 'No Listings found in Trash',
+    );
+
+    $listingArgs = array(
+        'labels'                => $listingLabels,
+        'public'                => true,
+        'has_archive'           => true,
+        'show_in_rest'          => true, // For Gutenberg editor
+        'supports'              => array('title', 'editor', 'thumbnail'),
+        'rewrite'               => array('slug' => 'listing'),
+        'menu_icon'             => 'dashicons-admin-home', // Choose an icon that fits
+    );
+
+    register_post_type('listing', $listingArgs);
+}
+
+add_action('init', 'paw_post_types');
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -11,7 +76,7 @@
 |
 */
 
-if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
+if (! file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
 }
 

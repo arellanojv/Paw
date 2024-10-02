@@ -2,33 +2,33 @@
 
 function paw_post_types()
 {
-    $labels = array(
-        'name'                  => 'Vet Clinics',
-        'singular_name'         => 'Vet Clinic',
-        'menu_name'             => 'Vet Clinics',
-        'name_admin_bar'        => 'Vet Clinic', // Appears in the admin toolbar
-        'add_new'               => 'Add New Vet Clinic',
-        'add_new_item'          => 'Add New Vet Clinic',
-        'new_item'              => 'New Vet Clinic',
-        'edit_item'             => 'Edit Vet Clinic',
-        'view_item'             => 'View Vet Clinic',
-        'all_items'             => 'All Vet Clinics',
-        'search_items'          => 'Search Vet Clinics',
-        'not_found'             => 'No Vet Clinics found',
-        'not_found_in_trash'    => 'No Vet Clinics found in Trash',
-    );
+    // $labels = array(
+    //     'name'                  => 'Vet Clinics',
+    //     'singular_name'         => 'Vet Clinic',
+    //     'menu_name'             => 'Vet Clinics',
+    //     'name_admin_bar'        => 'Vet Clinic', // Appears in the admin toolbar
+    //     'add_new'               => 'Add New Vet Clinic',
+    //     'add_new_item'          => 'Add New Vet Clinic',
+    //     'new_item'              => 'New Vet Clinic',
+    //     'edit_item'             => 'Edit Vet Clinic',
+    //     'view_item'             => 'View Vet Clinic',
+    //     'all_items'             => 'All Vet Clinics',
+    //     'search_items'          => 'Search Vet Clinics',
+    //     'not_found'             => 'No Vet Clinics found',
+    //     'not_found_in_trash'    => 'No Vet Clinics found in Trash',
+    // );
 
-    $args = array(
-        'labels'             => $labels,
-        'public'             => true,
-        'has_archive'        => true,
-        'show_in_rest'       => true, // For Gutenberg editor
-        'supports'           => array('title', 'editor', 'thumbnail'),
-        'rewrite'            => array('slug' => 'vet-clinic'),
-        'menu_icon'          => 'dashicons-pets',
-    );
+    // $args = array(
+    //     'labels'             => $labels,
+    //     'public'             => true,
+    //     'has_archive'        => true,
+    //     'show_in_rest'       => true, // For Gutenberg editor
+    //     'supports'           => array('title', 'editor', 'thumbnail'),
+    //     'rewrite'            => array('slug' => 'vet-clinic'),
+    //     'menu_icon'          => 'dashicons-pets',
+    // );
 
-    register_post_type('vet_clinic', $args);
+    // register_post_type('vet_clinic', $args);
 
 
     $listingLabels = array(
@@ -57,8 +57,15 @@ function paw_post_types()
         'menu_icon'             => 'dashicons-admin-home', // Choose an icon that fits
     );
 
+    register_post_type('listing', $listingArgs);
+}
 
-    $Locationlabels = array(
+add_action('init', 'paw_post_types');
+
+
+function register_location_taxonomy()
+{
+    $labels = array(
         'name'                       => 'Locations',
         'singular_name'              => 'Location',
         'search_items'               => 'Search Locations',
@@ -74,20 +81,43 @@ function paw_post_types()
 
     $args = array(
         'labels'            => $labels,
-        'hierarchical'      => true, // This makes it hierarchical, like categories
+        'hierarchical'      => true, // Allows parent/child relationships
         'public'            => true,
-        'show_in_rest'      => true, // For Gutenberg editor
+        'show_in_rest'      => true, // Enables Gutenberg support
         'show_admin_column' => true,
-        'rewrite'           => array('slug' => 'location'),
+        'rewrite'           => array(
+            'slug'         => 'vet-clinic',  // Slug for parent locations
+            'with_front'   => false,
+            'hierarchical' => true,          // Allows custom rewrite for children
+        ),
     );
 
     register_taxonomy('location', array('listing'), $args);
-
-    register_post_type('listing', $listingArgs);
 }
+add_action('init', 'register_location_taxonomy');
 
-add_action('init', 'paw_post_types');
+// Custom rewrite rules for child terms without parent slug
+function custom_location_rewrite_rules($rules)
+{
+    $new_rules = array(
+        'vet-clinics/([^/]+)/?$' => 'index.php?location=$matches[1]',
+    );
+    return $new_rules + $rules;
+}
+add_filter('rewrite_rules_array', 'custom_location_rewrite_rules');
 
+// Modify the term link to remove the parent slug for child terms
+function custom_location_permalink($url, $term, $taxonomy)
+{
+    if ($taxonomy === 'location') {
+        if ($term->parent) {
+            // Ensure child terms only use 'vet-clinics' slug without parent term in the URL
+            $url = home_url('/vet-clinics/' . $term->slug . '/');
+        }
+    }
+    return $url;
+}
+add_filter('term_link', 'custom_location_permalink', 10, 3);
 
 
 

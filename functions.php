@@ -57,6 +57,32 @@ function paw_post_types()
         'menu_icon'             => 'dashicons-admin-home', // Choose an icon that fits
     );
 
+
+    $Locationlabels = array(
+        'name'                       => 'Locations',
+        'singular_name'              => 'Location',
+        'search_items'               => 'Search Locations',
+        'all_items'                  => 'All Locations',
+        'parent_item'                => 'Parent Location',
+        'parent_item_colon'          => 'Parent Location:',
+        'edit_item'                  => 'Edit Location',
+        'update_item'                => 'Update Location',
+        'add_new_item'               => 'Add New Location',
+        'new_item_name'              => 'New Location Name',
+        'menu_name'                  => 'Locations',
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true, // This makes it hierarchical, like categories
+        'public'            => true,
+        'show_in_rest'      => true, // For Gutenberg editor
+        'show_admin_column' => true,
+        'rewrite'           => array('slug' => 'location'),
+    );
+
+    register_taxonomy('location', array('listing'), $args);
+
     register_post_type('listing', $listingArgs);
 }
 

@@ -5,7 +5,14 @@
         <!-- Section Container -->
         <div class="container-default">
             <div class="breadcrumb-block">
-                <h1 class="breadcrumb-title">{!! $title !!}</h1>
+                {{-- Check if single_term_title() has a value, else fallback to $title --}}
+                <h1>
+                    @if (single_term_title('', false))
+                        {{ single_term_title() }}
+                    @else
+                        {!! $title !!}
+                    @endif
+                </h1>
                 <ul class="breadcrumb-nav">
                     <li><a href="index.php">Home</a></li>
                     <li>About</li>

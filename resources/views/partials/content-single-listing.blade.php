@@ -8,42 +8,33 @@
                 <!-- Single Sidebar -->
                 <div class="rounded-[10px] p-2">
 
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15698.260936541978!2d123.9591129!3d10.376605!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9a2a4b257b93f%3A0xfac1dfd070068d37!2sTaf%20Animal%20Clinic!5e0!3m2!1sen!2sph!4v1728569976209!5m2!1sen!2sph"
-                        width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div>
+                        <?php if ( $map_embed = get_field( 'map_embed' ) ) : ?>
+                        <?php echo $map_embed; ?>
+                        <?php endif; ?>
+                    </div>
                     <div class="relative mb-[10px] inline-block pb-[10px] ">
                         <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
-                            Accreditations & Licenses
+                            Affiliations & Licenses
                         </h4>
                     </div>
-                    <!-- Accreditations & Licenses -->
-                    <ul class="text-ColorBlack">
-                        <li>
-                            <p>
-                                <span class="h-auto">
-                                    <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
-                                </span> Commission on Accreditation of
-                                Rehabilitation Facilities
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="h-auto">
-                                    <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
-                                    State Substance Abuse agency
-                                </span>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="h-auto">
-                                    <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
-                                    State Substance Abuse agency
-                                </span>
-                            </p>
-                        </li>
-                    </ul>
+
+
+                    <div>
+                        <?php if ( have_rows( 'affiliations' ) ) : ?>
+                        <ul class="text-ColorBlack">
+                            <?php while ( have_rows( 'affiliations' ) ) : the_row(); ?>
+                            <li>
+                                <p><span class="h-auto">
+                                        <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
+                                    </span> <?php the_sub_field('name'); ?></p>
+                            </li> <!-- Assuming 'name' is the sub-field in the repeater -->
+                            <?php endwhile; ?>
+                        </ul>
+                        <?php endif; ?>
+                    </div>
+
+
                     <!-- Accreditations & Licenses -->
 
                     <div class="relative mb-[10px] inline-block pb-[10px] ">
@@ -72,18 +63,29 @@
                             <h4 class="font-bold font-sans break-normal text-gray-900 py-2 text-3xl md:text-4xl">
                                 About {!! $title !!}:</h4>
                         </div>
+                        <div class="py-6">
+
+                            <?php echo the_content(); ?>
+
+                        </div>
 
                         <!--Lead Para-->
                         <div class="pt-2 pb-6">
-                            <span class="font-semibold">Address:</span> 👋 Welcome fellow
+                            <span class="font-semibold">Address:</span> <?php if ( $address = get_field( 'address' ) ) : ?>
+                            <?php echo esc_html($address); ?>
+                            <?php endif; ?>
                         </div>
 
                         <div class="pb-6">
-                            <span class="font-semibold">Phone Number:</span> 👋 Welcome fellow
+                            <span class="font-semibold">Phone Number:</span> <?php if ( $phone_number = get_field( 'phone_number' ) ) : ?>
+                            <?php echo $phone_number; ?>
+                            <?php endif; ?>
                         </div>
 
                         <div class="pb-6">
-                            <span class="font-semibold">Website:</span> 👋 Welcome fellow
+                            <span class="font-semibold">Website:</span> <?php if ( $website = get_field( 'website' ) ) : ?>
+                            <?php echo esc_html($website); ?>
+                            <?php endif; ?>
                         </div>
 
                     </div>

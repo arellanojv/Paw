@@ -71,9 +71,7 @@
 
                         <!--Lead Para-->
                         <div class="pt-2 pb-6">
-                            <span class="font-semibold">Address:</span> <?php if ( $address = get_field( 'address' ) ) : ?>
-                            <?php echo esc_html($address); ?>
-                            <?php endif; ?>
+                            <span class="font-semibold">Address:</span> {{ $listingFields['address'] }}
                         </div>
 
                         <div class="pb-6">

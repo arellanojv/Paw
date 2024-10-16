@@ -65,7 +65,7 @@
                         </div>
                         <div class="py-6">
 
-                            <?php echo the_content(); ?>
+                            @php(the_content())
 
                         </div>
 
@@ -75,15 +75,11 @@
                         </div>
 
                         <div class="pb-6">
-                            <span class="font-semibold">Phone Number:</span> <?php if ( $phone_number = get_field( 'phone_number' ) ) : ?>
-                            <?php echo $phone_number; ?>
-                            <?php endif; ?>
+                            <span class="font-semibold">Phone Number:</span> {{ $listingFields['phone_number'] }}
                         </div>
 
                         <div class="pb-6">
-                            <span class="font-semibold">Website:</span> <?php if ( $website = get_field( 'website' ) ) : ?>
-                            <?php echo esc_html($website); ?>
-                            <?php endif; ?>
+                            <span class="font-semibold">Website:</span> {{ $listingFields['website'] }}
                         </div>
 
                     </div>

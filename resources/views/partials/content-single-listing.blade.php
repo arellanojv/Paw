@@ -9,9 +9,7 @@
                 <div class="rounded-[10px] p-2">
 
                     <div>
-                        <?php if ( $map_embed = get_field( 'map_embed' ) ) : ?>
-                        <?php echo $map_embed; ?>
-                        <?php endif; ?>
+                        {!! $googleMapEmbed !!}
                     </div>
                     <div class="relative mb-[10px] inline-block pb-[10px] ">
                         <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
@@ -23,13 +21,16 @@
                     <div>
                         <?php if ( have_rows( 'affiliations' ) ) : ?>
                         <ul class="text-ColorBlack">
-                            <?php while ( have_rows( 'affiliations' ) ) : the_row(); ?>
-                            <li>
-                                <p><span class="h-auto">
-                                        <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
-                                    </span> <?php the_sub_field('name'); ?></p>
-                            </li> <!-- Assuming 'name' is the sub-field in the repeater -->
-                            <?php endwhile; ?>
+                            @foreach ($listingFields['affiliations'] as $affiliation)
+                                <li>
+                                    <p>
+                                        <span class="h-auto">
+                                            <i class="fa-solid fa-circle-info text-ColorDarkBlue60 mr-1"></i>
+                                        </span>
+                                        {{ $affiliation }}
+                                    </p>
+                                </li>
+                            @endforeach
                         </ul>
                         <?php endif; ?>
                     </div>

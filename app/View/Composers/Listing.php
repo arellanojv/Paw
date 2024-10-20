@@ -52,8 +52,6 @@ class Listing extends Composer
       'phone_number' => get_field('phone_number'),
       'website'      => get_field('website'),
       'map_embed'    => get_field('map_embed'),
-      'longitude'    => get_field('longitude'),
-      'latitude'    => get_field('latitude'),
       'coordinates'    => get_field('coordinates'),
       'map_embed'    => get_field('map_embed'),
       'affiliations' => have_rows('affiliations') ? $this->getAffiliations() : null,

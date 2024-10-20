@@ -1,3 +1,6 @@
+<?php
+$items = [['label' => 'Home', 'url' => '/'], ['label' => 'Clinics', 'url' => '/vet-clinics'], ['label' => 'Subcategory', 'url' => '/subcategory'], ['label' => 'Current Page', 'url' => '']];
+?>
 <!--..:: Breadcrumb Section Start ::.. -->
 <section class="section-breadcrumb">
     <!-- Breadcrumb Section Spacer -->
@@ -14,8 +17,10 @@
                     @endif
                 </h1>
                 <ul class="breadcrumb-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li>About</li>
+                    {{-- <li><a href="index.php">Home</a></li>
+                    <li>About</li> --}}
+                    @component('components.breadcrumb', ['items' => $items])
+                    @endcomponent
                 </ul>
             </div>
         </div>

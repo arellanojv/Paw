@@ -8,6 +8,10 @@ namespace App;
 
 use function Roots\bundle;
 
+
+// Include helpers.php
+require_once get_theme_file_path('/app/helpers.php');
+
 /**
  * Register the theme assets.
  *

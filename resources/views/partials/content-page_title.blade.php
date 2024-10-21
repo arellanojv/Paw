@@ -1,6 +1,8 @@
-<?php
-$items = [['label' => 'Home', 'url' => '/'], ['label' => 'Clinics', 'url' => '/vet-clinics'], ['label' => 'Subcategory', 'url' => '/subcategory'], ['label' => 'Current Page', 'url' => '']];
-?>
+@php
+    // Generate dynamic breadcrumbs
+    $items = get_breadcrumb_items();
+@endphp
+
 <!--..:: Breadcrumb Section Start ::.. -->
 <section class="section-breadcrumb">
     <!-- Breadcrumb Section Spacer -->
@@ -19,8 +21,7 @@ $items = [['label' => 'Home', 'url' => '/'], ['label' => 'Clinics', 'url' => '/v
                 <ul class="breadcrumb-nav">
                     {{-- <li><a href="index.php">Home</a></li>
                     <li>About</li> --}}
-                    @component('components.breadcrumb', ['items' => $items])
-                    @endcomponent
+                    @include('components.breadcrumb', ['items' => $items])
                 </ul>
             </div>
         </div>

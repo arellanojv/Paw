@@ -23,8 +23,26 @@ function get_breadcrumb_items()
     }
   }
 
-  // If it's a single post or page, add the title
+
+  // Check if it's a single post or page
   if (is_single() || is_page()) {
+
+
+    if (get_post_type() === 'listing') {
+
+      $location_term = get_assigned_location_term(get_the_ID(), 'location');
+      if ($location_term) {
+        // Add the location term to your breadcrumb items or display it
+        $items[] = [
+          'label' => $location_term['label'],
+          'url'   => $location_term['url'],
+        ];
+      }
+    }
+
+
+
+    // Add the single post title
     $items[] = [
       'label' => get_the_title(),
       'url'   => '',
@@ -62,4 +80,49 @@ function get_breadcrumb_items()
   }
 
   return $items;
+}
+
+
+function get_parent_taxonomy_term($post_id, $taxonomy)
+{
+  // Get the terms of the current post for the specified taxonomy
+  $terms = get_the_terms($post_id, $taxonomy);
+
+  // Check if terms exist and there is at least one
+  if (!empty($terms) && !is_wp_error($terms)) {
+    // Assuming you want to get the first term (if multiple terms are assigned)
+    $term = $terms[0];
+
+    // Check if the term has a parent
+    if ($term->parent) {
+      // Get the parent term
+      $parent_term = get_term($term->parent, $taxonomy);
+
+      // Return the parent term's name and URL
+      return [
+        'label' => $parent_term->name,
+        'url'   => get_term_link($parent_term),
+      ];
+    }
+  }
+
+  return null; // No parent term found
+}
+
+function get_assigned_location_term($post_id, $taxonomy)
+{
+  // Get the terms of the current post for the specified taxonomy
+  $terms = get_the_terms($post_id, $taxonomy);
+
+  // Check if terms exist and there is at least one
+  if (!empty($terms) && !is_wp_error($terms)) {
+    // Return the first term's name and URL (you can modify this if you expect multiple terms)
+    $term = $terms[0];
+    return [
+      'label' => $term->name,
+      'url'   => get_term_link($term),
+    ];
+  }
+
+  return null; // No terms found
 }

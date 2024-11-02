@@ -6,94 +6,107 @@ use Roots\Acorn\View\Composer;
 
 class Listing extends Composer
 {
-  /**
-   * List of views served by this composer.
-   *
-   * @var array
-   */
   protected static $views = [
-    'single-listing',             // This will apply to the single listing post type view
-    'partials.content-listing',   // If you want to load specific partials for listing content
+    'single-listing',
+    'partials.content-listing',
+    'taxonomy-location',
   ];
 
-  /**
-   * Data to be passed to view before rendering.
-   *
-   * @return array
-   */
   public function override()
   {
     return [
-      'title'          => $this->title(),
-      'listingFields'  => $this->listingFields(),   // Custom fields from ACF
-      'googleMapEmbed' => $this->generateGoogleMapEmbed(), // Google Map embed
+      'title'              => $this->title(),
+      'listingFields'      => $this->listingFields(),
+      'googleMapEmbed'     => $this->generateGoogleMapEmbed(),
+      'googleStaticMapUrl' => $this->generateGoogleStaticMapUrl(), // Static map URL
     ];
   }
 
-  /**
-   * Retrieve the post title.
-   *
-   * @return string
-   */
   public function title()
   {
     return get_the_title();
   }
 
-  /**
-   * Retrieve custom fields for the listing.
-   *
-   * @return array
-   */
   public function listingFields()
   {
     return [
       'address'      => get_field('address'),
       'phone_number' => get_field('phone_number'),
       'website'      => get_field('website'),
-      'map_embed'    => get_field('map_embed'),
-      'coordinates'    => get_field('coordinates'),
+      'coordinates'  => get_field('coordinates'),
       'map_embed'    => get_field('map_embed'),
       'affiliations' => have_rows('affiliations') ? $this->getAffiliations() : null,
     ];
   }
 
-  /**
-   * Fetch affiliations from ACF repeater field.
-   *
-   * @return array
-   */
   private function getAffiliations()
   {
     $affiliations = [];
     while (have_rows('affiliations')) {
       the_row();
-      $affiliations[] = get_sub_field('name');  // Assuming 'name' is the sub field
+      $affiliations[] = get_sub_field('name');
     }
     return $affiliations;
   }
 
-  /**
-   * Generate Google Map Embed code based on coordinates and display the address.
-   *
-   * @return string|null
-   */
   private function generateGoogleMapEmbed()
   {
-    $coordinates = get_field('coordinates'); // Get the coordinates from ACF (e.g., "lat,lng")
-    $address = get_field('address'); // Get the address from ACF
-    $zoom = 14; // Set the zoom level
+    $address = get_field('address');
+    $zoom = 14;
 
-    if ($coordinates && $address) {
-      // Create the embed URL using both coordinates and address
-      $embed_url = 'https://maps.google.com/maps?q=' . urlencode($address) . '&z=' . $zoom . '&ll=' . $coordinates . '&markers=' . $coordinates . '&ie=UTF8&iwloc=&output=embed';
+    if ($address) {
+      $output = '
+        <div id="map" style="width:100%; height:365px;"></div>
+        <script>
+            function initMap() {
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ "address": "' . esc_js($address) . '" }, function(results, status) {
+                    if (status === "OK") {
+                        const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: ' . $zoom . ',
+                            center: results[0].geometry.location,
+                            mapTypeControl: false
+                        });
 
-      // Generate the iframe output
-      $output = '<iframe loading="lazy" width="100%" height="365" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . esc_url($embed_url) . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+                        const marker = new google.maps.Marker({
+                            position: results[0].geometry.location,
+                            map: map
+                        });
+
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: "<strong>' . esc_html($address) . '</strong>"
+                        });
+
+                        marker.addListener("click", function() {
+                            infoWindow.open(map, marker);
+                        });
+                    } else {
+                        console.error("Geocode failed: " + status);
+                    }
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>';
 
       return $output;
     }
 
-    return null; // Return null if there are no coordinates or address
+    return null;
+  }
+
+  public function generateGoogleStaticMapUrl()
+  {
+    $address = get_field('address');
+    $apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
+    $zoom = 15;
+    $size = '400x300';
+    $markerColor = '0x0a1d38';
+
+    if ($address) {
+      return "https://maps.googleapis.com/maps/api/staticmap?center=" . urlencode($address) .
+        "&zoom={$zoom}&size={$size}&maptype=roadmap&markers=color:{$markerColor}|label:|{$address}&key={$apiKey}";
+    }
+
+    return null;
   }
 }

@@ -36,6 +36,8 @@
                                         @php($listings_query->the_post())
                                         @php($staticMapUrl = app('App\\View\\Composers\\Listing')->generateGoogleStaticMapUrl())
 
+
+
                                         <li class="accordion-item accordion-solid-shadow">
                                             <div
                                                 class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">

@@ -53,12 +53,10 @@ class Listing extends Composer
   {
     $coordinates = get_field('coordinates'); // Get coordinates as a string
     $address = get_field('address'); // Get the address
-    $current_location = get_queried_object(); // Get the current taxonomy object
     $zoom = 14;
 
     // Initialize variables for map data
     $mapCenter = null;
-    $content = '';
 
     if ($coordinates) {
       // Split the coordinates into latitude and longitude
@@ -66,14 +64,15 @@ class Listing extends Composer
       $lat = floatval(trim($lat));
       $lng = floatval(trim($lng));
       $mapCenter = "new google.maps.LatLng($lat, $lng)";
-      $content = "<strong>Coordinates: {$lat}, {$lng}</strong>";
     } elseif ($address) {
       // Use address if coordinates are not available
       $mapCenter = '"' . esc_js($address) . '"'; // Placeholder for geocoding
-    } elseif ($current_location && !empty($current_location->name)) {
-      // Use taxonomy name if neither coordinates nor address are available
-      $mapCenter = '"' . esc_js($current_location->name) . '"'; // Placeholder for geocoding=
+
     }
+
+    $content = "<div style='font-size: 14px; padding-bottom: 8px; font-weight: 500;'> " . esc_html($address) .
+      "</div><div style='color: #1a73e8;'><a href='https://www.google.com/maps/search/?api=1&query=" . urlencode($address) .
+      "' target='_blank'>View Larger Map</a></div>";
 
     // Only generate the output if there is something to display
     if ($mapCenter) {
@@ -84,9 +83,22 @@ class Listing extends Composer
                     const mapOptions = {
                         zoom: ' . $zoom . ',
                         center: ' . ($coordinates ? $mapCenter : 'null') . ',
-                        mapTypeControl: false
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                        fullscreenControl: false
                     };
                     const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    // Create the info box as a custom control
+                    const infoBoxDiv = document.createElement("div");
+                    infoBoxDiv.style.backgroundColor = "white";
+                    infoBoxDiv.style.padding = "10px";
+                    infoBoxDiv.style.margin = "5px";
+                    infoBoxDiv.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
+                    infoBoxDiv.innerHTML = `' . $content . '`;
+
+                    // Position the info box at the top left
+                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(infoBoxDiv);
 
                     const geocoder = new google.maps.Geocoder();
 
@@ -96,14 +108,6 @@ class Listing extends Composer
                             position: ' . $mapCenter . ',
                             map: map
                         });
-
-                        // const infoWindow = new google.maps.InfoWindow({
-                        //     content: "' . esc_js($content) . '"
-                        // });
-
-                        // marker.addListener("click", function() {
-                        //     infoWindow.open(map, marker);
-                        // });
                     } else {
                         geocoder.geocode({ "address": ' . $mapCenter . ' }, function(results, status) {
                             if (status === "OK") {
@@ -113,7 +117,6 @@ class Listing extends Composer
                                     position: results[0].geometry.location,
                                     map: map
                                 });
-
                             } else {
                                 console.error("Geocode failed: " + status);
                             }
@@ -126,8 +129,10 @@ class Listing extends Composer
       return $output;
     }
 
-    return null; // Return null if no coordinates, address, or taxonomy name is available
+    return null; // Return null if no coordinates or address is available
   }
+
+
 
 
   public function generateGoogleStaticMapUrl()
@@ -135,7 +140,7 @@ class Listing extends Composer
     $coordinates = get_field('coordinates'); // Get the coordinates as a string
     $apiKey = 'AIzaSyCh37kl3U05PiUqYoUmJcGeUG9KBgWaoAY';
     $zoom = 15;
-    $size = '400x430';
+    $size = '400x600';
     $markerColor = '0x0a1d38';
     $address = get_field('address');
 

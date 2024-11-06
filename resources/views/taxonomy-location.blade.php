@@ -36,17 +36,18 @@
                                         @php($listings_query->the_post())
                                         @php($staticMapUrl = app('App\\View\\Composers\\Listing')->generateGoogleStaticMapUrl())
 
-
-
                                         <li class="accordion-item accordion-solid-shadow">
                                             <div
                                                 class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
-                                                <div class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
-                                                    <div class="">
+                                                <div
+                                                    class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur sm:grid-cols-12">
+                                                    <div class="hidden md:block">
+                                                        <!-- Hide map on mobile and show on larger screens -->
                                                         <img src="{{ $staticMapUrl }}"
                                                             alt="Static Map of {{ get_the_title() }}">
                                                     </div>
                                                     <div class="col-span-3">
+                                                        <!-- Make the div full width on mobile -->
                                                         <div
                                                             class="accordion-header flex justify-between gap-6 text-xl font-semibold">
                                                             <h4 class="text-md cursor-pointer text-ColorDarkBlue">
@@ -86,13 +87,11 @@
                                                             </div>
                                                             <div class="pt-6">
                                                                 <a href="{{ get_permalink() }}"
-                                                                    class="group relative z-10 hidden sm:inline-block">
+                                                                    class="group relative z-10 sm:pb-10">
                                                                     <div
-                                                                        class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
+                                                                        class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm py-3 px-6 sm:px-8">
+                                                                        <!-- Add extra padding for mobile -->
                                                                         View Additional Information
-                                                                    </div>
-                                                                    <div
-                                                                        class="is-rounded absolute inset-0 -z-10 translate-x-[5px] translate-y-[5px] bg-ColorDarkBlue transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0">
                                                                     </div>
                                                                 </a>
                                                             </div>
@@ -101,8 +100,10 @@
                                                 </div>
                                                 <div class="read-more text-center absolute z-10 right-0 bottom-0 left-0">
                                                     <a href="#"
-                                                        class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue">Read
-                                                        More</a>
+                                                        class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue sm:py-4 lg:py-6">
+                                                        <!-- Adjust padding on mobile -->
+                                                        Read More
+                                                    </a>
                                                 </div>
                                             </div>
                                         </li>

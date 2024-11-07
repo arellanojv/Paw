@@ -36,18 +36,18 @@
                                         @php($listings_query->the_post())
                                         @php($staticMapUrl = app('App\\View\\Composers\\Listing')->generateGoogleStaticMapUrl())
 
+
+
                                         <li class="accordion-item accordion-solid-shadow">
                                             <div
                                                 class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
                                                 <div
-                                                    class="grid grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur sm:grid-cols-12">
+                                                    class="grid grid-cols-12 md:grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
                                                     <div class="hidden md:block">
-                                                        <!-- Hide map on mobile and show on larger screens -->
                                                         <img src="{{ $staticMapUrl }}"
                                                             alt="Static Map of {{ get_the_title() }}">
                                                     </div>
-                                                    <div class="col-span-3">
-                                                        <!-- Make the div full width on mobile -->
+                                                    <div class="col-span-12 md:col-span-3">
                                                         <div
                                                             class="accordion-header flex justify-between gap-6 text-xl font-semibold">
                                                             <h4 class="text-md cursor-pointer text-ColorDarkBlue">
@@ -85,12 +85,11 @@
                                                                     Transfer, Credit Card
                                                                 </p>
                                                             </div>
-                                                            <div class="pt-6">
+                                                            <div class="pt-6 mb-5">
                                                                 <a href="{{ get_permalink() }}"
-                                                                    class="group relative z-10 sm:pb-10">
+                                                                    class="group relative z-10 inline-block">
                                                                     <div
-                                                                        class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm py-3 px-6 sm:px-8">
-                                                                        <!-- Add extra padding for mobile -->
+                                                                        class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
                                                                         View Additional Information
                                                                     </div>
                                                                 </a>
@@ -100,10 +99,8 @@
                                                 </div>
                                                 <div class="read-more text-center absolute z-10 right-0 bottom-0 left-0">
                                                     <a href="#"
-                                                        class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue sm:py-4 lg:py-6">
-                                                        <!-- Adjust padding on mobile -->
-                                                        Read More
-                                                    </a>
+                                                        class="box-toggle block cursor-pointer py-3.5 text-ColorDarkBlue">Read
+                                                        More</a>
                                                 </div>
                                             </div>
                                         </li>

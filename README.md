@@ -1,11 +1,11 @@
 
 # Vet Care Local Directory (Not Finished & A Work In Progress )
 
-[Live Demo](https://paw.natureworldexpress.com/vet-clinics/consolacion/) |
+[Live Demo](https://paw.natureworldexpress.com/vet-clinics/consolacion/) 
 
 ## Project Overview
 
-The **Vet Care Local Directory** is a specialized web application designed to help users locate nearby veterinary clinics. It leverages static pages for improved SEO, creating a fast, user-friendly experience. This project includes a custom directory system for listing veterinary clinics organized by location.
+The **Vet Care Local Directory** is a specialized WordPress web application designed to help users locate nearby veterinary clinics. It leverages static pages for improved SEO, creating a fast, user-friendly experience. This project includes a custom directory system for listing veterinary clinics organized by location.
 
 ## Key Features
 
@@ -21,7 +21,7 @@ The **Vet Care Local Directory** is a specialized web application designed to he
 
 ## Technologies Used
 
-- **WordPress** (custom post types and taxonomies)
+- **WordPress**
 - **Roots Bedrock, Sage, Acorn, and Bud**
 - **Tailwind CSS**
 - **Advanced Custom Fields (ACF)**

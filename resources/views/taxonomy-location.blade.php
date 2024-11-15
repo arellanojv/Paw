@@ -61,7 +61,7 @@
                                                                         <i class="fa-solid fa-phone"></i>
                                                                     </div>
                                                                     <div class="flex-1 text-md">
-                                                                        423-7609
+                                                                        {{ get_field('phone_number') }}
                                                                     </div>
                                                                 </div>
 
@@ -70,8 +70,7 @@
                                                                         <i class="fa-solid fa-location-dot"></i>
                                                                     </div>
                                                                     <div class="flex-1 text-md">
-                                                                        1790 Maximo V. Patalinjug Jr. Ave, Lapu-Lapu City,
-                                                                        6015 Cebu
+                                                                        {{ get_field('address') }}
                                                                     </div>
                                                                 </div>
                                                             </div>

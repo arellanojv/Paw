@@ -8,9 +8,8 @@
                 </span>
             @else
                 <span class="p-2" property="itemListElement" typeof="ListItem">
-                    <a property="item" typeof="WebPage" title="Go to {!! $item['label'] !!}." href="{{ $item['url'] }}"
-                        class="hover:text-indigo-500">
-                        <span property="name">
+                    <a property="item" typeof="WebPage" title="Go to {!! $item['label'] !!}." href="{{ $item['url'] }}">
+                        <span property="name" class="hover:text-ColorDarkBlue60 text-ColorDarkBlue">
                             @if ($loop->first)
                                 <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

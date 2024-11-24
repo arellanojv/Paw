@@ -19,8 +19,6 @@
                     @endif
                 </h1>
                 <ul class="breadcrumb-nav">
-                    {{-- <li><a href="index.php">Home</a></li>
-                    <li>About</li> --}}
                     @include('components.breadcrumb', ['items' => $items])
                 </ul>
             </div>

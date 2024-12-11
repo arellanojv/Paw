@@ -11,15 +11,14 @@
                     <div>
                         {!! $googleMapEmbed !!}
                     </div>
-                    <div class="relative mb-[10px] inline-block pb-[10px] ">
-                        <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
-                            Affiliations & Licenses
-                        </h4>
-                    </div>
-
-
+                    <?php if ( have_rows( 'affiliations' ) ) : ?>
                     <div>
-                        <?php if ( have_rows( 'affiliations' ) ) : ?>
+                        <div class="relative mb-[10px] inline-block pb-[10px] ">
+                            <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
+                                Affiliations & Licenses
+                            </h4>
+                        </div>
+
                         <ul class="text-ColorBlack">
                             @foreach ($listingFields['affiliations'] as $affiliation)
                                 <li>
@@ -32,9 +31,9 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <?php endif; ?>
-                    </div>
 
+                    </div>
+                    <?php endif; ?>
 
                     <!-- Accreditations & Licenses -->
 
@@ -81,6 +80,16 @@
 
                         <div class="pb-6">
                             <span class="font-semibold">Website:</span> {{ $listingFields['website'] }}
+                        </div>
+
+                        <div class="pb-6">
+                            <b>Offers the following services:</b>
+                            {{ get_field('services') ?: 'Vaccination, Deworming, Grooming, Confinement, Surgery, Laboratory' }}
+                        </div>
+
+                        <div class="pb-6">
+                            <b>Payments Accepted:</b>
+                            {{ get_field('payments_accepted') ?: 'Cash, Gcash, Online Bank Transfer, Credit Card' }}
                         </div>
 
                     </div>

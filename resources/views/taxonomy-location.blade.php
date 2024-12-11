@@ -74,14 +74,15 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <p class="pt-2">
-                                                                <b>Offers the following services:</b> Vaccination,
-                                                                Deworming, Grooming, Confinement, Surgery, Laboratory
-                                                            </p>
                                                             <div>
                                                                 <p class="pt-2">
-                                                                    <b>Payments Accepted:</b> Cash, Gcash, Online Bank
-                                                                    Transfer, Credit Card
+                                                                    <b>Offers the following services:</b>
+                                                                    {{ get_field('services') ?: 'Vaccination, Deworming, Grooming, Confinement, Surgery, Laboratory' }}
+                                                                </p>
+
+                                                                <p class="pt-2">
+                                                                    <b>Payments Accepted:</b>
+                                                                    {{ get_field('payments_accepted') ?: 'Cash, Gcash, Online Bank Transfer, Credit Card' }}
                                                                 </p>
                                                             </div>
                                                             <div class="pt-6 mb-5">

@@ -1,3 +1,22 @@
+@php
+    // Get the current location term
+    $current_location = get_queried_object();
+
+    // Fetch other listings in the current location
+    $other_listings_query = new WP_Query([
+        'post_type' => 'listing',
+        'posts_per_page' => 5, // Adjust the number of listings to show
+        'tax_query' => [
+            [
+                'taxonomy' => 'location',
+                'field' => 'term_id',
+                'terms' => $current_location->term_id,
+            ],
+        ],
+        'post__not_in' => [get_the_ID()], // Exclude the current post
+    ]);
+@endphp
+
 <!-- Section Spacer -->
 <div class="mt-[50px] mb-[50px]">
     <!-- Section Container -->
@@ -41,6 +60,21 @@
                         <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
                             Find a Vet Clinic In A City Near ...
                         </h4>
+                        @if ($other_listings_query->have_posts())
+                            <ul class="grid gap-y-4">
+                                @while ($other_listings_query->have_posts())
+                                    @php($other_listings_query->the_post())
+                                    <li>
+                                        <a href="{{ get_permalink() }}" class="text-ColorDarkBlue hover:underline">
+                                            {{ get_the_title() }}
+                                        </a>
+                                    </li>
+                                @endwhile
+                            </ul>
+                            @php(wp_reset_postdata())
+                        @else
+                            <p class="text-gray-700">No other vet clinics found in this location.</p>
+                        @endif
                     </div>
                 </div>
                 <!-- Single Sidebar -->

@@ -2,35 +2,6 @@
 
 function paw_post_types()
 {
-    // $labels = array(
-    //     'name'                  => 'Vet Clinics',
-    //     'singular_name'         => 'Vet Clinic',
-    //     'menu_name'             => 'Vet Clinics',
-    //     'name_admin_bar'        => 'Vet Clinic', // Appears in the admin toolbar
-    //     'add_new'               => 'Add New Vet Clinic',
-    //     'add_new_item'          => 'Add New Vet Clinic',
-    //     'new_item'              => 'New Vet Clinic',
-    //     'edit_item'             => 'Edit Vet Clinic',
-    //     'view_item'             => 'View Vet Clinic',
-    //     'all_items'             => 'All Vet Clinics',
-    //     'search_items'          => 'Search Vet Clinics',
-    //     'not_found'             => 'No Vet Clinics found',
-    //     'not_found_in_trash'    => 'No Vet Clinics found in Trash',
-    // );
-
-    // $args = array(
-    //     'labels'             => $labels,
-    //     'public'             => true,
-    //     'has_archive'        => true,
-    //     'show_in_rest'       => true, // For Gutenberg editor
-    //     'supports'           => array('title', 'editor', 'thumbnail'),
-    //     'rewrite'            => array('slug' => 'vet-clinic'),
-    //     'menu_icon'          => 'dashicons-pets',
-    // );
-
-    // register_post_type('vet_clinic', $args);
-
-
     $listingLabels = array(
         'name'                  => 'Listings',
         'singular_name'         => 'Listing',
@@ -53,14 +24,17 @@ function paw_post_types()
         'has_archive'           => true,
         'show_in_rest'          => true, // For Gutenberg editor
         'supports'              => array('title', 'editor', 'thumbnail'),
-        'rewrite'               => array('slug' => 'listing'),
-        'menu_icon'             => 'dashicons-admin-home', // Choose an icon that fits
+        'rewrite'               => array(
+            'slug' => 'listing',
+            'with_front' => false
+        ),
+        'menu_icon'             => 'dashicons-admin-home',
     );
 
     register_post_type('listing', $listingArgs);
 }
-
 add_action('init', 'paw_post_types');
+
 
 
 function register_location_taxonomy()
@@ -81,14 +55,14 @@ function register_location_taxonomy()
 
     $args = array(
         'labels'            => $labels,
-        'hierarchical'      => true, // Allows parent/child relationships
+        'hierarchical'      => true,
         'public'            => true,
-        'show_in_rest'      => true, // Enables Gutenberg support
+        'show_in_rest'      => true,
         'show_admin_column' => true,
         'rewrite'           => array(
-            'slug'         => 'vet-clinic',  // Slug for parent locations
+            'slug'         => 'location', // Updated slug for better clarity
             'with_front'   => false,
-            'hierarchical' => true,          // Allows custom rewrite for children
+            'hierarchical' => true,
         ),
     );
 

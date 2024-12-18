@@ -1,6 +1,11 @@
 @php
-    // Get the current location term
-    $current_location = get_queried_object();
+
+    $current_post_id = get_the_ID();
+
+    // Get the terms associated with the 'location' taxonomy for the current listing
+    $location_term = get_the_terms($current_post_id, 'location');
+
+    $location_id = $location_term[0]->term_id;
 
     // Fetch other listings in the current location
     $other_listings_query = new WP_Query([
@@ -10,11 +15,12 @@
             [
                 'taxonomy' => 'location',
                 'field' => 'term_id',
-                'terms' => $current_location->term_id,
+                'terms' => $location_term[0]->term_id,
             ],
         ],
         'post__not_in' => [get_the_ID()], // Exclude the current post
     ]);
+
 @endphp
 
 <!-- Section Spacer -->
@@ -61,10 +67,10 @@
                             Find a Vet Clinic In A City Near ...
                         </h4>
                         @if ($other_listings_query->have_posts())
-                            <ul class="grid gap-y-4">
+                            <ul class="grid gap-y-4 pt-5">
                                 @while ($other_listings_query->have_posts())
                                     @php($other_listings_query->the_post())
-                                    <li>
+                                    <li class="border p-2">
                                         <a href="{{ get_permalink() }}" class="text-ColorDarkBlue hover:underline">
                                             {{ get_the_title() }}
                                         </a>

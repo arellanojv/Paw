@@ -39,7 +39,7 @@
                     <?php if ( have_rows( 'affiliations' ) ) : ?>
                     <div>
                         <div class="relative mb-[10px] inline-block pb-[10px] ">
-                            <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
+                            <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-2xl">
                                 Affiliations & Licenses
                             </h4>
                         </div>
@@ -63,23 +63,24 @@
                     <!-- Accreditations & Licenses -->
 
                     <div class="relative mb-[10px] inline-block pb-[10px] ">
-                        <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-3xl">
-                            Find a Vet Clinic In A City Near ...
-                        </h4>
                         @if ($other_listings_query->have_posts())
+                            <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-2xl">
+                                Find other Vet Clinics found Near @php echo $location_term[0]->name; @endphp
+                            </h4>
+
                             <ul class="grid gap-y-4 pt-5">
                                 @while ($other_listings_query->have_posts())
                                     @php($other_listings_query->the_post())
                                     <li class="border p-2">
-                                        <a href="{{ get_permalink() }}" class="text-ColorDarkBlue hover:underline">
+                                        <a href="{{ get_permalink() }}"
+                                            class="text-ColorDarkBlue hover:underline text-sm">
                                             {{ get_the_title() }}
                                         </a>
                                     </li>
                                 @endwhile
                             </ul>
                             @php(wp_reset_postdata())
-                        @else
-                            <p class="text-gray-700">No other vet clinics found in this location.</p>
+
                         @endif
                     </div>
                 </div>

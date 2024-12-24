@@ -5,8 +5,6 @@
     // Get the terms associated with the 'location' taxonomy for the current listing
     $location_term = get_the_terms($current_post_id, 'location');
 
-    $location_id = $location_term[0]->term_id;
-
     // Fetch other listings in the current location
     $other_listings_query = new WP_Query([
         'post_type' => 'listing',

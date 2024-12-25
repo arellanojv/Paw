@@ -54,6 +54,11 @@
                                                                 {{ get_the_title() }}</h4>
                                                         </div>
 
+
+                                                        @if (is_array(get_field('verified')) && in_array('Yes', get_field('verified')))
+                                                            <b>Verified</b>
+                                                        @endif
+
                                                         <div class="accordion-body max-w-[826px] opacity-80 pt-2">
                                                             <div class="pt-2">
                                                                 <div class="flex gap-x-3">

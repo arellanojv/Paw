@@ -2,10 +2,10 @@ import domReady from '@roots/sage/client/dom-ready';
 import Swiper from 'swiper';
 import JOS from "jos-animation";
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faPhone, faLocationDot, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faLocationDot, faCircleInfo, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import '@scripts/menu';
 
-library.add(faPhone, faLocationDot, faCircleInfo);
+library.add(faPhone, faLocationDot, faCircleInfo, faCircleCheck);
 dom.watch();
 // import '@scripts/masco';
 

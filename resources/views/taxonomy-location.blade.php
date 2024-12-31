@@ -41,9 +41,7 @@
                                         <li class="accordion-item accordion-solid-shadow">
                                             <div
                                                 class="overflow-hidden rounded-[10px] border-2 border-ColorDarkBlue bg-white p-[30px] relative">
-                                                @if (is_array(get_field('verified')) && in_array('Yes', get_field('verified')))
-                                                    <div class="text-right">Sponsored</div>
-                                                @endif
+
                                                 <div
                                                     class="grid grid-cols-12 md:grid-cols-4 grid-flow-col gap-4 box-toggle listing-blur">
                                                     <div class="hidden md:block">

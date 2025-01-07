@@ -87,9 +87,9 @@
             <!-- Listing Aside -->
 
             <div class="flex flex-col gap-y-10 lg:gap-y-14 xl:gap-y-20">
-                <!-- Blog Post Area -->
+                <!-- Listing Post Area -->
                 <div class="flex flex-col gap-6">
-                    <!-- Blog Post Article -->
+                    <!-- Listing Post Article -->
 
 
 
@@ -104,7 +104,7 @@
                         </div>
                         <div class="py-6">
 
-                            @php(the_content())
+                            {!! the_content() !!}
 
                         </div>
 
@@ -133,7 +133,7 @@
 
                     </div>
                 </div>
-                <!-- Blog Post Detail Area -->
+                <!-- Listing Post Detail Area -->
             </div>
         </div>
     </div>

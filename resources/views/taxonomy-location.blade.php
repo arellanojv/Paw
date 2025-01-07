@@ -103,7 +103,13 @@
                                                                     class="group relative z-10 inline-block">
                                                                     <div
                                                                         class="btn is-rounded bg-ColorDarkBlue border-black text-white text-sm">
-                                                                        View Additional Information
+
+                                                                        @if (is_array(get_field('verified')) && in_array('Yes', get_field('verified')))
+                                                                            View Featured Listing
+                                                                        @else
+                                                                            View Additional Information
+                                                                        @endif
+
                                                                     </div>
                                                                 </a>
                                                             </div>

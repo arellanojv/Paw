@@ -16,8 +16,25 @@
                     'terms' => $current_location->slug,
                 ],
             ],
+            'meta_query' => [
+                'relation' => 'OR',
+                [
+                    'key' => 'verified',
+                    'value' => 'Yes',
+                    'compare' => 'LIKE', // Match serialized array containing 'Yes'
+                ],
+                [
+                    'key' => 'verified',
+                    'compare' => 'NOT EXISTS', // Include posts without the field
+                ],
+            ],
+            'orderby' => [
+                'meta_value' => 'DESC', // Prioritize verified listings
+                'date' => 'DESC', // Then sort by date
+            ],
         ]);
     @endphp
+
 
     <div class="section-space">
         <div class="container-default">

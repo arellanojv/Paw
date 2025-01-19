@@ -97,26 +97,6 @@
                     </div>
                     <?php endif; ?>
 
-                    <!-- Other Listings -->
-                    <div class="relative mb-[10px] inline-block pb-[10px]">
-                        @if ($other_listings_query->have_posts())
-                            <h4 class="font-bold break-normal text-gray-900 pt-6 text-2xl md:text-2xl">
-                                Find other Vet Clinics found Near @php echo $location_term[0]->name; @endphp
-                            </h4>
-                            <ul class="grid gap-y-4 pt-5">
-                                @while ($other_listings_query->have_posts())
-                                    @php($other_listings_query->the_post())
-                                    <li class="border p-2">
-                                        <a href="{{ get_permalink() }}"
-                                            class="text-ColorDarkBlue hover:underline text-sm">
-                                            {{ get_the_title() }}
-                                        </a>
-                                    </li>
-                                @endwhile
-                            </ul>
-                            @php(wp_reset_postdata())
-                        @endif
-                    </div>
                 </div>
                 <!-- Single Sidebar -->
             </aside>
